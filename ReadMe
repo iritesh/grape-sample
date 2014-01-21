@@ -1,0 +1,88 @@
+For this project to pass this test you have to install PostGreSQL database
+then create a super user and password 
+let us say your super user is super_user and password is password
+you have to edit local_setup.rb
+in line 3 it is
+DB = Sequel.connect('postgres://ritesh:newpassword@localhost')  #ritesh is my super user and newpassword was my pasword on localhost
+you have to replace it with
+DB = Sequel.connect('postgre://super_user:password@localhost')
+
+then in terminal run 
+
+ruby local_setup.rb           #(ensure that you have installed required gems in script)
+then all is set for running this app on your local server
+then chage directory to rails6
+cd rails6
+there is a file in rails6 with name grape_user_api.rb
+
+in this file you have to edit line no 27
+DB = Sequel.connect('postgres://ritesh:newpassword@localhost')
+to 
+DB = Sequel.connect('postgre://super_user:password@localhost')
+please replace variable super_user and password according to you
+
+and then run bundle install
+after that you have to run command
+rackup config.ru
+
+and you can see response at localhost:9292/users/1
+you can use parameters include exclude for getting attributes of your choice
+
+valid attributes are
+first_name
+last_name
+email
+zipcode
+company_name
+google_profile
+skype  
+phone
+about
+linkedin_profile_url
+company_url
+needs 
+offering
+upcoming_meetings
+past_meetings 
+top_matches 
+you can use exclude parameter for excluding some attributes and rest will be included automatically
+
+in test1.rb on line 42,101 i have written my string for connecting for mine is
+
+DB = Sequel.connect('postgres://ritesh:newpassword@localhost')
+you have to edit it with your super user and password
+
+DB(Sequel.connect('postgres://super_user:password@localhost'))
+
+ 
+then run command bundle exec rspec test1.rb
+and you will see that all the five tests are passing successfully
+
+
+after this you have to Deploy it on heroku for deploying it on heroku
+create app using 
+heroku login
+heroku create
+then you will see in browser in heroku apps there will be an app will be created
+at this url https://postgres.heroku.com/databases
+
+you will a database with prefix as your app name 
+click on that database you will get connection settings
+
+in this section you have to note
+ user,password,database,host
+and replace line number 27
+with
+DB = Sequel.connect('postgres://user:password@host/database')
+
+and then run following commands
+
+git init
+git add .
+git commit -m "Initial commit"
+heroku create 
+git push heroku master and you will find your app is hosted on heroku
+
+you can see live example at http://obscure-reaches-7422.herokuapp.com/
+if there is any installation problem then please drop a mail at ritesh@iritesh.com i will try to resolve issue
+

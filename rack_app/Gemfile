@@ -1,0 +1,16 @@
+source "http://rubygems.org"
+gem 'grape'
+gem 'sequel'
+gem 'heroku'
+gem 'rake'
+gem 'pg'
+gem 'rack'
+group :test do
+  gem "rspec", "~> 2.12.0"
+  gem "rack-test", "~> 0.6.2"
+  gem "rspec-core", "~> 2.12.2"
+  gem "rspec-expectations", "~> 2.12.1"
+  gem "rspec-mocks", "~> 2.12.1"
+  gem "capybara", "~> 2.0.2"
+  gem "nokogiri", "~> 1.5.6"
+end
