@@ -11,9 +11,9 @@ then in terminal run
 
 ruby local_setup.rb           #(ensure that you have installed required gems in script)
 then all is set for running this app on your local server
-then chage directory to rails6
-cd rails6
-there is a file in rails6 with name grape_user_api.rb
+then chage directory to rack_app
+cd rack_app
+there is a file in rack_app with name grape_user_api.rb
 
 in this file you have to edit line no 27
 DB = Sequel.connect('postgres://ritesh:newpassword@localhost')
@@ -57,32 +57,3 @@ DB(Sequel.connect('postgres://super_user:password@localhost'))
  
 then run command bundle exec rspec test1.rb
 and you will see that all the five tests are passing successfully
-
-
-after this you have to Deploy it on heroku for deploying it on heroku
-create app using 
-heroku login
-heroku create
-then you will see in browser in heroku apps there will be an app will be created
-at this url https://postgres.heroku.com/databases
-
-you will a database with prefix as your app name 
-click on that database you will get connection settings
-
-in this section you have to note
- user,password,database,host
-and replace line number 27
-with
-DB = Sequel.connect('postgres://user:password@host/database')
-
-and then run following commands
-
-git init
-git add .
-git commit -m "Initial commit"
-heroku create 
-git push heroku master and you will find your app is hosted on heroku
-
-you can see live example at http://obscure-reaches-7422.herokuapp.com/
-if there is any installation problem then please drop a mail at ritesh@iritesh.com i will try to resolve issue
-
